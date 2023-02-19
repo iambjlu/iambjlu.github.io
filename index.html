@@ -50,8 +50,8 @@
                 document.getElementById('card2_title').style.color= '#000000';
             }
 
-            if (screen.width >= screen.height) {
-                //Mac or PC
+            if (screen.width >= screen.height || screen.width > 500) {
+                //Mac, PC, Tab, or Galaxy Z Fold Series
                 document.querySelector('.demo-card-square.mdl-card').style.width = "460px";
                 document.getElementById('card2_title').style.width = "460px";
                 document.getElementById('card2_content').style.width = "380px";
