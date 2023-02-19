@@ -9,7 +9,6 @@
     <link rel=icon href="https://avatars.githubusercontent.com/u/55518831" sizes="16x16" type="image/png">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
         body {
@@ -25,9 +24,28 @@
             color: #FFF;
         }
     </style>
+    <script>
+        function AutoOrientate() {
+            if (screen.width >= screen.height) {
+                var card1 = document.querySelector('.demo-card-square.mdl-card');
+                card1.style.width = "460px%";
+                var card2 = document.getElementById('card2');
+                card2.style.width = "460px";
+                var card2_content = document.getElementById('card2_content');
+                card2_content.style.width = "380px";
+            } else {
+                var card1 = document.querySelector('.demo-card-square.mdl-card');
+                card1.style.width = screen.width-25+"px";
+                var card2 = document.getElementById('card2');
+                card2.style.width = screen.width-25+"px";
+                var card2_content = document.getElementById('card2_content');
+                card2_content.style.width = screen.width-125+"px";
+            }
+        }</script>
 </head>
-<body>
-<header class="mdl-layout__header">
+
+<body onload="AutoOrientate()">
+    <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
         <!-- Title -->
         <a class="mdl-layout-title"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="font-size:large;font-weight: bold; color:#FFF;text-transform:capitalize" href="https://github.com/iambjlu" target="_top">
@@ -46,7 +64,7 @@
 </header><br><br>
 
 <center>
-    <div class="demo-card-square mdl-card mdl-shadow--2dp" style="alignment: center">
+    <div class="demo-card-square mdl-card mdl-shadow--2dp" style="alignment: center" id="card1">
         <div class="mdl-card__title mdl-card--expand"
              style="background: url('https://avatars.githubusercontent.com/u/55518831') center no-repeat #FFFFFFFF; ">
         </div>
@@ -72,14 +90,14 @@
     <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
         <thead>
         <tr>
-            <th style="text-align: left;color:#000;font-size: 16px;">網頁作品展示</th>
+            <th style="text-align: left;color:#000;font-size: 16px;" id="card2">網頁作品展示</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td style="text-align:left" width="460px">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width:380px; font-size: 16px;font-weight: bold" href="papayaBookStore/index.html" target="_top">
-                    木瓜書城</a>
+            <td style="text-align:center" style="width:100%">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="font-size: 16px;font-weight: bold" href="papayaBookStore/index.html" target="_top" id="card2_content">
+                    木瓜書城 (靜態預覽)</a>
             </td>
         </tr>
         
@@ -89,10 +107,10 @@
     <br><br><br>
 </center>
 <dialog class="mdl-dialog">
-    <h4 class="mdl-dialog__title">關於此網站</h4>
+    <h4 class="mdl-dialog__title">關於此頁面</h4>
     <div class="mdl-dialog__content">
         <p style="color: #000"><br/>
-            本網站由盧柏均製作<br />
+            本網站由蘿蔔製作<br />
         </p>
     <div class="mdl-dialog__actions">
         <button class="mdl-button mdl-js-button mdl-button--primary" onClick="dialog.close();">好
