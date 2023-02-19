@@ -24,13 +24,14 @@
             color: #FFF;
         }
     </style>
+    
+    <div id="loading"><br><br><br><br><br><center><div class='mdl-spinner mdl-js-spinner is-active'></div></center></div>
+
+
     <script>
         function init() {
-
-            
-
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                //dark
+                //Dark Mode
                 document.querySelector('body').style='background-color: #000000;color: #FFFFFF;font-family: "Roboto","PingFang TC", AppleGothic, "微軟正黑體", "Microsoft JhengHei";';
                 document.querySelector('.demo-card-square.mdl-card').style="background-color: #2e2e2e";
                 document.getElementById('card1_title').style.color= '#FFFFFF';
@@ -39,7 +40,7 @@
                 document.getElementById('card2_td').style= 'background-color: #2e2e2e;color:#FFFFFF';
                 document.getElementById('card2_title').style.color= '#FFFFFF';
             } else {
-                //light
+                //Light Mode
                 document.querySelector('body').style='background-color: #eeeeee;color: #000000;font-family: "Roboto","PingFang TC", AppleGothic, "微軟正黑體", "Microsoft JhengHei";';
                 document.querySelector('.demo-card-square.mdl-card').style="background-color: #eeeeee";
                 document.getElementById('card1_title').style.color= '#000000';
@@ -50,21 +51,25 @@
             }
 
             if (screen.width >= screen.height) {
+                //Mac or PC
                 document.querySelector('.demo-card-square.mdl-card').style.width = "460px";
                 document.getElementById('card2_title').style.width = "460px";
                 document.getElementById('card2_content').style.width = "380px";
                 document.getElementById('br_for_desktop').innerHTML="<br>"
             } else {
+                //Mobile
                 document.querySelector('.demo-card-square.mdl-card').style.width = screen.width-25+"px";
                 document.getElementById('card2_title').style.width = screen.width-25+"px";
                 document.getElementById('card2_content').style.width = screen.width-125+"px";
             }
             
+            document.querySelector('body').style.visibility="visible";
+            document.getElementById("loading").innerHTML="";
 
         }</script>
 </head>
 
-<body onload="init()">
+<body onload="init()" style="visibility:hidden;">
     <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
         <!-- Title -->
