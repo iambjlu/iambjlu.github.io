@@ -25,26 +25,46 @@
         }
     </style>
     <script>
-        function AutoOrientate() {
-            if (screen.width >= screen.height) {
-                var card1 = document.querySelector('.demo-card-square.mdl-card');
-                card1.style.width = "460px%";
-                var card2 = document.getElementById('card2');
-                card2.style.width = "460px";
-                var card2_content = document.getElementById('card2_content');
-                card2_content.style.width = "380px";
+        function init() {
+
+            
+
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                //dark
+                document.querySelector('body').style='background-color: #000000;color: #FFFFFF;font-family: "Roboto","PingFang TC", AppleGothic, "微軟正黑體", "Microsoft JhengHei";';
+                document.querySelector('.demo-card-square.mdl-card').style="background-color: #2e2e2e";
+                document.getElementById('card1_title').style.color= '#FFFFFF';
+                document.getElementById('card1_message').style.color= '#FFFFFF';            
+                document.getElementById('card2').style= 'background-color: #2e2e2e;color:#FFFFFF';
+                document.getElementById('card2_td').style= 'background-color: #2e2e2e;color:#FFFFFF';
+                document.getElementById('card2_title').style.color= '#FFFFFF';
             } else {
-                var card1 = document.querySelector('.demo-card-square.mdl-card');
-                card1.style.width = screen.width-25+"px";
-                var card2 = document.getElementById('card2');
-                card2.style.width = screen.width-25+"px";
-                var card2_content = document.getElementById('card2_content');
-                card2_content.style.width = screen.width-125+"px";
+                //light
+                document.querySelector('body').style='background-color: #eeeeee;color: #000000;font-family: "Roboto","PingFang TC", AppleGothic, "微軟正黑體", "Microsoft JhengHei";';
+                document.querySelector('.demo-card-square.mdl-card').style="background-color: #eeeeee";
+                document.getElementById('card1_title').style.color= '#000000';
+                document.getElementById('card1_message').style.color= '#000000';            
+                document.getElementById('card2').style= 'background-color: #eeeeee;color:#000000';
+                document.getElementById('card2_td').style= 'background-color: #eeeeee;color:#000000';
+                document.getElementById('card2_title').style.color= '#000000';
             }
+
+            if (screen.width >= screen.height) {
+                document.querySelector('.demo-card-square.mdl-card').style.width = "460px";
+                document.getElementById('card2_title').style.width = "460px";
+                document.getElementById('card2_content').style.width = "380px";
+                document.getElementById('br_for_desktop').innerHTML="<br>"
+            } else {
+                document.querySelector('.demo-card-square.mdl-card').style.width = screen.width-25+"px";
+                document.getElementById('card2_title').style.width = screen.width-25+"px";
+                document.getElementById('card2_content').style.width = screen.width-125+"px";
+            }
+            
+
         }</script>
 </head>
 
-<body onload="AutoOrientate()">
+<body onload="init()">
     <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
         <!-- Title -->
@@ -58,10 +78,9 @@
             <a class="mdl-navigation__link" href="https://github.com/iambjlu" target="_top" style="font-size: 16px">Repositories</a>
             <a class="mdl-navigation__link" href="https://sites.google.com/view/iambjlu/spark" target="_top" style="font-size: 16px">Google Sites</a>
             <a class="mdl-navigation__link" href="https://iambjlu.blogspot.com" target="_top" style="font-size: 16px">Blog</a>
-            <a class="mdl-navigation__link"  href="javascript: dialog.showModal();" style="font-size: 16px">關於此網站</a>
         </nav>
     </div>
-</header><br><br>
+</header><br><div id="br_for_desktop"></div>
 
 <center>
     <div class="demo-card-square mdl-card mdl-shadow--2dp" style="alignment: center" id="card1">
@@ -69,12 +88,12 @@
              style="background: url('https://avatars.githubusercontent.com/u/55518831') center no-repeat #FFFFFFFF; ">
         </div>
         <div class="mdl-card__supporting-text">
-            <h2 class="mdl-card__title-text" style="color:#000;font-size: x-large;font-weight: bold">歡迎來到蘿蔔的Github頁面</h2><br>
-            <p id="card_message" style="text-align: left;color:#000;font-size: 16px;">
+            <h2 id="card1_title" class="mdl-card__title-text" style="color:#000;font-size: x-large;font-weight: bold" >歡迎來到蘿蔔的Github頁面</h2><br>
+            <p id="card1_message" style="text-align: left;color:#000;font-size: 16px;">
                請點選要前往的頁面
             </p>
         </div>
-        <div class="mdl-card__actions mdl-card--border">
+        <div class="mdl-card__actions mdl-card--border" >
             <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="font-weight: bold;" href="https://github.com/iambjlu" target="_top">
                 Repositories
             </a>
@@ -87,15 +106,15 @@
         </div>
     </div><br><br>
 
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp" id="card2">
         <thead>
         <tr>
-            <th style="text-align: left;color:#000;font-size: 16px;" id="card2">網頁作品展示</th>
+            <th style="text-align: left;color:#000;font-size: 16px;" id="card2_title">網頁作品展示</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td style="text-align:center" style="width:100%">
+            <td style="text-align:center" style="width:100%" id="card2_td">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="font-size: 16px;font-weight: bold" href="papayaBookStore/index.html" target="_top" id="card2_content">
                     木瓜書城 (靜態預覽)</a>
             </td>
@@ -106,20 +125,6 @@
 
     <br><br><br>
 </center>
-<dialog class="mdl-dialog">
-    <h4 class="mdl-dialog__title">關於此頁面</h4>
-    <div class="mdl-dialog__content">
-        <p style="color: #000"><br/>
-            本網站由蘿蔔製作<br />
-        </p>
-    <div class="mdl-dialog__actions">
-        <button class="mdl-button mdl-js-button mdl-button--primary" onClick="dialog.close();">好
-        </button>
-    </div>
-</dialog>
-<script>
-    var dialog = document.querySelector('dialog');
-</script>
 
 </body>
 </html>
