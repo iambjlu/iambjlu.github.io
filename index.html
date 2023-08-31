@@ -7,8 +7,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css">
     <link rel=icon href="https://avatars.githubusercontent.com/u/55518831" sizes="16x16" type="image/png">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script>
+        // 檢查User Agent
+        var userAgent = window.navigator.userAgent;
+        if (userAgent.indexOf("MSIE") !== -1 || userAgent.indexOf("Trident") !== -1 || userAgent.indexOf("Edge") !== -1 ||userAgent.indexOf("Firefox") !== -1) {
+            alert("我們發現您使用的是過時或不相容的瀏覽器。\n為確保使用體驗，建議使用下列瀏覽器進行瀏覽:\n\n- Google Chrome\n- Microsoft Edge (版本79以上)\n- Brave\n- 其他基於 Chromium 打造的瀏覽器");
+        }
+    </script>
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
         body {
@@ -22,6 +29,10 @@
 
         .demo-card-square > .mdl-card__title {
             color: #FFF;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
         }
     </style>
     
