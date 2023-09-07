@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div id="user-agent-info"></div>
+    <script>
+        if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+            document.querySelector('body').style='background-color: #000000;color: #FFFFFF;font-family: "JetBrains Mono","Roboto","PingFang TC", AppleGothic, "微軟正黑體", "Microsoft JhengHei";';
+            var colorMode="深色模式";
+        }else{
+            document.querySelector('body').style='background-color: #eeeeee;color: #000000;font-family: "JetBrains Mono","Roboto","PingFang TC", AppleGothic, "微軟正黑體", "Microsoft JhengHei";';
+            var colorMode="淺色模式";
+        }
+        document.getElementById("user-agent-info").innerText = "使用者代理: "+navigator.userAgent+"\n視窗高度: "+innerHeight+"\n視窗寬度: "+innerWidth+"\n顯示器寬度: "+screen.width+"\n顯示器寬度: "+screen.width+"\n外觀模式: "+colorMode;
+    </script>
+</body>
+</html>
